@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#fcfc05"
+    tools:context=".AddItemActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="back"
+        android:layout_marginTop="10dp"
+        android:id="@+id/back"
+        android:onClick="onBack"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="70dp"
+        android:hint="Name"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:id="@+id/websiteName"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/websiteName"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="70dp"
+        android:hint="Usename/Email"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@+id/user_email"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_email"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="70dp"
+        android:inputType="text"
+        android:hint="Password"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@+id/webpass"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/webpass"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="70dp"
+        android:inputType="textUri"
+        android:hint="URL"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@+id/url"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/url"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Save"
+        android:onClick="onSave"
+        android:id="@+id/save_button"
+        />
+
+
+
+
+</RelativeLayout>
