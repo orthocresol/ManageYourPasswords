@@ -30,8 +30,18 @@
         android:id="@+id/dashboard_generator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
         android:text="Generator"
         app:layout_constraintEnd_toStartOf="@+id/dashboard_floating_button"
         app:layout_constraintTop_toTopOf="@+id/dashboard_floating_button" />
+
+    <Button
+        android:id="@+id/dashboardSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dashboard_generator" />
 </androidx.constraintlayout.widget.ConstraintLayout>

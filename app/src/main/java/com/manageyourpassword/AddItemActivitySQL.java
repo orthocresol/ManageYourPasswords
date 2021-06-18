@@ -53,8 +53,8 @@ public class AddItemActivitySQL extends AppCompatActivity {
 
                 Item item = new Item(-1, name, username, password, url);
                 DatabaseHelper db = new DatabaseHelper(AddItemActivitySQL.this);
-                boolean b = db.insert(identifier, item);
-                if(b){
+                int row = db.insert(identifier, item);
+                if(row != -1){
                     Toast.makeText(AddItemActivitySQL.this, "Item added successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 }

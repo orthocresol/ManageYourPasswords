@@ -67,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatement);
     }
 
-    public boolean insert(String tableName, Item item){
+    public int insert(String tableName, Item item){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         
@@ -78,12 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         
         long insert = db.insert(tableName, null, cv);
         db.close();
-        if (insert == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return (int) insert;
     }
     public ArrayList<Item> getEveryone(String tableName){
         ArrayList<Item> returnList = new ArrayList<>();

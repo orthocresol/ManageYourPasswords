@@ -23,6 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SplashScreenActivity.this, LoginActivitySQL.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -31,6 +32,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

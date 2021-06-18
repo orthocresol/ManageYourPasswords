@@ -8,9 +8,10 @@
 
     <EditText
         android:id="@+id/register_email"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="156dp"
+        android:drawableLeft="@drawable/icon_person"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
@@ -21,9 +22,10 @@
 
     <EditText
         android:id="@+id/register_password"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:drawableLeft="@drawable/icon_lock"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
@@ -34,7 +36,7 @@
         android:id="@+id/register_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="79dp"
         android:layout_marginTop="64dp"
         android:text="Register"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +46,20 @@
         android:id="@+id/register_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="79dp"
         android:text="Log in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/register_register" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:text="Register"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

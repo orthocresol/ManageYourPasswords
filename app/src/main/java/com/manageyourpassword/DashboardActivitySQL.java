@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class DashboardActivitySQL extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     Button temporary_generator;
+    Button temporary_settings;
     String identifier;
     RecyclerView recyclerView;
     DashboardAdapter adapter;
@@ -30,6 +31,7 @@ public class DashboardActivitySQL extends AppCompatActivity {
 
         floatingActionButton = findViewById(R.id.dashboard_floating_button);
         temporary_generator = findViewById(R.id.dashboard_generator);
+        temporary_settings = findViewById(R.id.dashboardSettings);
         recyclerView = findViewById(R.id.dashboard_recyclerview);
         identifier = getIntent().getStringExtra("identifier");
 
@@ -69,6 +71,15 @@ public class DashboardActivitySQL extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivitySQL.this, GeneratorActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        temporary_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivitySQL.this, SettingsActivitySQL.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

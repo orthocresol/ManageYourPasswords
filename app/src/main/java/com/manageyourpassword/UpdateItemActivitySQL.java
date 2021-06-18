@@ -52,17 +52,23 @@ public class UpdateItemActivitySQL extends AppCompatActivity {
                 DatabaseHelper db = new DatabaseHelper(UpdateItemActivitySQL.this);
                 db.delete(identifier, id);
                 Item item = new Item(-1, name, username, password, url);
-                db.insert(identifier, item);
-                Toast.makeText(UpdateItemActivitySQL.this, "updated successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UpdateItemActivitySQL.this, ViewItemActivitySQL.class);
-                intent.putExtra("identifier", identifier);
-                intent.putExtra("id", id);
-                intent.putExtra("name", name);
-                intent.putExtra("username", username);
-                intent.putExtra("password", password);
-                intent.putExtra("url", url);
-                startActivity(intent);
-                finish();
+                int row_id = db.insert(identifier, item);
+                if(row_id != -1){
+                    Toast.makeText(UpdateItemActivitySQL.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(UpdateItemActivitySQL.this, ViewItemActivitySQL.class);
+                    intent.putExtra("identifier", identifier);
+                    intent.putExtra("id", row_id);
+                    intent.putExtra("name", name);
+                    intent.putExtra("username", username);
+                    intent.putExtra("password", password);
+                    intent.putExtra("url", url);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(UpdateItemActivitySQL.this, "Updating failed", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

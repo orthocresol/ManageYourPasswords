@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SignUpActivitySQL extends AppCompatActivity {
     Button btn_login, btn_register;
     EditText et_username, et_password;
+    SessionManagerSQL sessionManagerSQL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class SignUpActivitySQL extends AppCompatActivity {
         btn_register = findViewById(R.id.register_register);
         et_username = findViewById(R.id.register_email);
         et_password = findViewById(R.id.register_password);
-
+        sessionManagerSQL = new SessionManagerSQL(getApplicationContext());
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,8 @@ public class SignUpActivitySQL extends AppCompatActivity {
                 if(status){
                     Toast.makeText(SignUpActivitySQL.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     db.createTableForUser(username);
-
+                    sessionManagerSQL.setLogin(true);
+                    sessionManagerSQL.setUsername(username);
 
 
                     Intent intent = new Intent(SignUpActivitySQL.this, DashboardActivitySQL.class);

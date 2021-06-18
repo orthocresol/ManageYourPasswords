@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivitySQL extends AppCompatActivity {
     Button btn_login, btn_register;
     EditText et_username, et_password;
-
+    SessionManagerSQL sessionManagerSQL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,17 @@ public class LoginActivitySQL extends AppCompatActivity {
         et_password = findViewById(R.id.login_password);
         btn_login = findViewById(R.id.login_login);
         btn_register = findViewById(R.id.login_register);
+        sessionManagerSQL = new SessionManagerSQL(getApplicationContext());
+
 
         clickListener();
+
+        if(sessionManagerSQL.getLogin()){
+            Intent intent = new Intent(LoginActivitySQL.this, DashboardActivitySQL.class);
+            intent.putExtra("identifier", sessionManagerSQL.getUsername());
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void clickListener() {
@@ -44,9 +53,14 @@ public class LoginActivitySQL extends AppCompatActivity {
                 //authentication
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
+                //username cannot contain dots -> implement
+                if (authenticateUser(username, password)) return;
+
                 DatabaseHelper db = new DatabaseHelper(LoginActivitySQL.this);
                 Boolean status = db.authenticate(username, password);
                 if(status){
+                    sessionManagerSQL.setLogin(true);
+                    sessionManagerSQL.setUsername(username);
                     Toast.makeText(LoginActivitySQL.this, "Login successful", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivitySQL.this, DashboardActivitySQL.class);
                     intent.putExtra("identifier", username);
@@ -60,5 +74,17 @@ public class LoginActivitySQL extends AppCompatActivity {
                 
             }
         });
+    }
+
+    private boolean authenticateUser(String username, String password) {
+        if(password.equals("")){
+            et_password.setError("Please enter password");
+            return true;
+        }
+        if(username.equals("")){
+            et_username.setError("Please enter username");
+            return true;
+        }
+        return false;
     }
 }
