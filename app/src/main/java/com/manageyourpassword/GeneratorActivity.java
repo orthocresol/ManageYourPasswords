@@ -35,7 +35,7 @@ public class GeneratorActivity extends AppCompatActivity {
 
         setTitle("Generator");
 
-        //bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.generatorNavigation);
         btn_regen = findViewById(R.id.gen_regen_btn);
         btn_copy = findViewById(R.id.gen_copy_btn);
         btn_len_plus = findViewById(R.id.gen_len_plus);
@@ -64,11 +64,10 @@ public class GeneratorActivity extends AppCompatActivity {
         tv_len.setText(String.valueOf(passwordLength));
 
         updatePassword();
-        /* will be updated later
-        bottomNavigationView.setSelectedItemId(R.id.btm_nav_generator);
+        bottomNavigationView.setSelectedItemId(R.id.generator);
 
         setNavigationBar();
-         */
+
         setClickListeners();
     }
 
@@ -200,30 +199,23 @@ public class GeneratorActivity extends AppCompatActivity {
             }
         });
     }
-    /*
+
     private void setNavigationBar() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent intent;
                 switch (item.getItemId()){
-                    case R.id.btm_nav_generator:
+                    case R.id.generator:
                         return true;
-                    case R.id.btm_nav_myvault:
-
-                        Intent intent = new Intent(GeneratorActivity.this, DashboardActivity.class);
+                    case R.id.dashboard:
+                        intent = new Intent(GeneratorActivity.this, DashboardActivitySQL.class);
                         startActivity(intent);
                         overridePendingTransition(0, 0);
                         finish();
                         return true;
-                    case R.id.btm_nav_search:
-                        intent = new Intent(GeneratorActivity.this, SearchActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(0, 0);
-                        finish();
-                        return true;
-                    case R.id.btm_nav_settings:
-                        intent = new Intent(GeneratorActivity.this, SettingsActivity.class);
+                    case R.id.settings:
+                        intent = new Intent(GeneratorActivity.this, SettingsActivitySQL.class);
                         startActivity(intent);
                         overridePendingTransition(0, 0);
                         finish();
@@ -234,5 +226,4 @@ public class GeneratorActivity extends AppCompatActivity {
             }
         });
     }
-    */
 }

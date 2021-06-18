@@ -63,7 +63,7 @@ public class LoginActivitySQL extends AppCompatActivity {
                     sessionManagerSQL.setUsername(username);
                     Toast.makeText(LoginActivitySQL.this, "Login successful", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivitySQL.this, DashboardActivitySQL.class);
-                    intent.putExtra("identifier", username);
+                    //intent.putExtra("identifier", username);
                     startActivity(intent);
                     finish();
                 }

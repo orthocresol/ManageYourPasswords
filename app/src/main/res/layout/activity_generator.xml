@@ -242,4 +242,17 @@
         app:layout_constraintStart_toStartOf="@+id/gen_num_tv"
         app:layout_constraintTop_toTopOf="@+id/textView14" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/generatorNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navigation" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

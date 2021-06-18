@@ -32,10 +32,12 @@ public class SignUpActivitySQL extends AppCompatActivity {
                 //create new account
                 // validate function
                 String username, password;
-                username = et_username.getText().toString().trim().toLowerCase();
+                username = et_username.getText().toString().trim();
                 password = et_password.getText().toString().trim();
 
-                validate(username, password);
+                if(validate(username, password)){
+                    return;
+                }
 
                 DatabaseHelper db = new DatabaseHelper(SignUpActivitySQL.this);
                 boolean status = db.register(username, password);
@@ -47,7 +49,7 @@ public class SignUpActivitySQL extends AppCompatActivity {
 
 
                     Intent intent = new Intent(SignUpActivitySQL.this, DashboardActivitySQL.class);
-                    intent.putExtra("identifier", username);
+                    //intent.putExtra("identifier", username);
                     startActivity(intent);
                     finish();
                 }
@@ -68,12 +70,28 @@ public class SignUpActivitySQL extends AppCompatActivity {
         });
     }
 
-    private void validate(String username, String password) {
+    private Boolean validate(String username, String password) {
         if(username.length() == 0){
             Toast.makeText(SignUpActivitySQL.this, "Username cannot be empty", Toast.LENGTH_SHORT).show();
+            et_username.setError("username cannot be empty");
+            return true;
         }
         if(password.length() == 0){
             Toast.makeText(SignUpActivitySQL.this, "Password cannot be empty", Toast.LENGTH_SHORT).show();
+            et_password.setError("password cannot be empty");
+            return true;
         }
+        for(int i = 0; i < username.length(); i++){
+            char c = username.charAt(i);
+            if(c >= 'a' && c <= 'z'){
+                continue;
+            }
+            else {
+                et_username.setError("username can only contain small letters");
+                Toast.makeText(SignUpActivitySQL.this, "Username can only contain small letters", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
+        return false;
     }
 }
