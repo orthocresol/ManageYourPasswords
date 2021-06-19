@@ -5,37 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashboardActivitySQL">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dashboard_recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="670dp"
-        app:layout_constraintBottom_toTopOf="@+id/generatorNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/dashboard_floating_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="100dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dashboard_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/generatorNavigation"
+            android:layout_alignParentTop="true"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/generatorNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_navigation" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/dashboard_floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/generatorNavigation"
+            android:layout_alignRight="@+id/generatorNavigation"
+            android:layout_margin="50dp"
+            android:clickable="true"
+
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/generatorNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_navigation" />
+
+    </RelativeLayout>
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
