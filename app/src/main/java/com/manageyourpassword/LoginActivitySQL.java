@@ -51,7 +51,7 @@ public class LoginActivitySQL extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //authentication
-                String username = et_username.getText().toString();
+                String username = et_username.getText().toString().trim();
                 String password = et_password.getText().toString();
                 //username cannot contain dots -> implement
                 if (authenticateUser(username, password)) return;

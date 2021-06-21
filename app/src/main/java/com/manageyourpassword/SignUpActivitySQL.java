@@ -33,7 +33,7 @@ public class SignUpActivitySQL extends AppCompatActivity {
                 // validate function
                 String username, password;
                 username = et_username.getText().toString().trim();
-                password = et_password.getText().toString().trim();
+                password = et_password.getText().toString();
 
                 if(validate(username, password)){
                     return;
@@ -83,12 +83,11 @@ public class SignUpActivitySQL extends AppCompatActivity {
         }
         for(int i = 0; i < username.length(); i++){
             char c = username.charAt(i);
-            if(c >= 'a' && c <= 'z'){
+            if(c >= 'a' && c <= 'z' || (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z')){
                 continue;
             }
             else {
-                et_username.setError("username can only contain small letters");
-                Toast.makeText(SignUpActivitySQL.this, "Username can only contain small letters", Toast.LENGTH_SHORT).show();
+                et_username.setError("username cannot contain dots and special characters");
                 return true;
             }
         }
