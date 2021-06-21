@@ -1,9 +1,14 @@
 package com.manageyourpassword;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +29,7 @@ public class ViewItemActivitySQL extends AppCompatActivity {
     int id;
     AlertDialog dialog;
     String name, username, password, url;
+    ImageButton btn_copy, btn_copy_password, btn_launch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,9 @@ public class ViewItemActivitySQL extends AppCompatActivity {
         tv_url = findViewById(R.id.viewItemUrl);
         iv_logo = findViewById(R.id.viewItemLogo);
         id = getIntent().getIntExtra("id", 0);
+        btn_copy = findViewById(R.id.viewItemCopy);
+        btn_copy_password = findViewById(R.id.viewItemCopyPassword);
+        btn_launch = findViewById(R.id.viewItemLaunch);
 
         clickListener();
         setAttribute();
@@ -118,5 +127,42 @@ public class ViewItemActivitySQL extends AppCompatActivity {
                 //putextra
             }
         });
+
+        btn_copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("username", tv_username.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                clip.getDescription();
+                Toast.makeText(ViewItemActivitySQL.this, "Username copied", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_copy_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("password", tv_password.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                clip.getDescription();
+                Toast.makeText(ViewItemActivitySQL.this, "Password copied", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_launch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToUrl(tv_url.getText().toString().trim());
+            }
+        });
+    }
+
+    private void goToUrl(String toString) {
+        toString = "https://" + toString;
+        Uri uri = Uri.parse(toString);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }

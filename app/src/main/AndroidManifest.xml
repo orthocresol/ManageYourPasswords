@@ -11,12 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageYourPassword">
-        <activity android:name=".SettingsActivitySQL"></activity>
+        <activity android:name=".SettingsActivitySQL"/>
         <activity android:name=".GeneratorActivity" />
         <activity
             android:name=".UpdateItemActivitySQL"
             android:parentActivityName=".ViewItemActivitySQL" />
-        <activity android:name=".ViewItemActivitySQL" />
+        <activity android:name=".ViewItemActivitySQL"
+            android:parentActivityName=".DashboardActivitySQL"/>
         <activity
             android:name=".AddItemActivitySQL"
             android:parentActivityName=".DashboardActivitySQL" />

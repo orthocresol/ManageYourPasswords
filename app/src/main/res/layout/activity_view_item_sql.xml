@@ -108,4 +108,35 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/viewItemUrl" />
+
+    <ImageButton
+        android:id="@+id/viewItemCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="144dp"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewItemUsername"
+        app:srcCompat="@drawable/ic_copy" />
+
+    <ImageButton
+        android:id="@+id/viewItemCopyPassword"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="@+id/viewItemCopy"
+        app:layout_constraintTop_toTopOf="@+id/viewItemPassword"
+        app:srcCompat="@drawable/ic_copy" />
+
+    <ImageButton
+        android:id="@+id/viewItemLaunch"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="@+id/viewItemCopy"
+        app:layout_constraintTop_toTopOf="@+id/viewItemUrl"
+        app:srcCompat="@drawable/ic_launch" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
