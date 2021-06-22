@@ -33,10 +33,16 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        bindLabels();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+        finish();
     }
 
     public void onSignUp(View view) {
+        bindLabels();
         bindStrings();
         if(verified(textName, textEmail, textPassword, textConfirmPassword)) {
             signUpUser(textName, textEmail, textPassword);
@@ -72,6 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
                     String storingEmailString = _email.substring(0, _email.indexOf('@')).toLowerCase().replace('.', '(');
                     DatabaseReference reference = db.getReference().child("Users").child(storingEmailString);
                     reference.child("Name").setValue(_name);
+                    reference.child("Save Login State").setValue("Off");
                     startActivity(new Intent(SignUpActivity.this, VaultActivity.class));
                     finish();
                 }

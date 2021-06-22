@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#fcfc05"
     tools:context=".SettingsActivity">
 
     <Button
@@ -20,37 +19,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:text="Change Font"
-        android:id="@+id/changeFont"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/changeFont"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:text="Change Password"
         android:id="@+id/changePassword"
         android:onClick="onChangePassword"
         />
 
-    <Button
+    <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/changePassword"
+        android:layout_centerInParent="true"
+        android:text="Save Login State"
+        android:layout_marginTop="50dp"
+        android:id="@+id/loginState"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginState"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:text="Log out from your account"
         android:id="@+id/logout"
         android:onClick="onLogout"
         />
-
-
-
-
-
-
 
 </RelativeLayout>
