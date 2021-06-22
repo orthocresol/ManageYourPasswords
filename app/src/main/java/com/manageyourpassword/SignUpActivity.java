@@ -33,10 +33,16 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        bindLabels();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+        finish();
     }
 
     public void onSignUp(View view) {
+        bindLabels();
         bindStrings();
         if(verified(textName, textEmail, textPassword, textConfirmPassword)) {
             signUpUser(textName, textEmail, textPassword);
