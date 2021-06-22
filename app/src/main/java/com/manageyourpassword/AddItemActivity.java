@@ -2,6 +2,7 @@ package com.manageyourpassword;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,18 +35,21 @@ public class AddItemActivity extends AppCompatActivity {
     public void onSave(View view) {
 
         bindStrings();
-        String findingEmail = VaultActivity.getTrackingEmail();
+        if(verified(textWebName,textUserEmail, textPassword, textUrl)) {
+            String findingEmail = VaultActivity.getTrackingEmail();
 
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference reference = db.getReference().child("Users").child(findingEmail).child("Websites");
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            DatabaseReference reference = db.getReference().child("Users").child(findingEmail).child("Websites");
 
-        reference.child("Website Names").child(textWebName).setValue(textWebName);
-        reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
-        reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);
-        reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
-        reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
+            reference.child("Website Names").child(textWebName).setValue(textWebName);
+            reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
+            reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);
+            reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
+            reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
 
-        Toast.makeText(AddItemActivity.this, "Data successfully saved", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
+            finish();
+        }
     }
 
     public void onBack(View view) {
@@ -65,6 +69,17 @@ public class AddItemActivity extends AppCompatActivity {
         textUserEmail = userEmail.getText().toString();
         textPassword = password.getText().toString();
         textUrl = url.getText().toString();
+    }
+
+    private boolean verified(String textName, String textEmail, String textPassword, String textUrl) {
+
+        if(TextUtils.isEmpty(textEmail) || TextUtils.isEmpty(textPassword) || TextUtils.isEmpty(textName)
+                || TextUtils.isEmpty(textUrl)) {
+            Toast.makeText(AddItemActivity.this, "Empty Credentials", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }
 

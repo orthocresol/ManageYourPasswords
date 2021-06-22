@@ -57,8 +57,6 @@ public class ViewActivity extends AppCompatActivity {
                     intent.putExtra("password", passwordFromDb);
                     intent.putExtra("url", urlFromDb);
                     startActivity(intent);
-                    finish();
-
                 }
                 else {
                     Toast.makeText(ViewActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();

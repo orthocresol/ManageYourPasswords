@@ -72,6 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
                     String storingEmailString = _email.substring(0, _email.indexOf('@')).toLowerCase().replace('.', '(');
                     DatabaseReference reference = db.getReference().child("Users").child(storingEmailString);
                     reference.child("Name").setValue(_name);
+                    reference.child("Save Login State").setValue("Off");
                     startActivity(new Intent(SignUpActivity.this, VaultActivity.class));
                     finish();
                 }

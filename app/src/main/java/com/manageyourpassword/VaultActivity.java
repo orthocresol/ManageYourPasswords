@@ -41,7 +41,6 @@ public class VaultActivity extends AppCompatActivity {
 
     public void onAdd(View view) {
         startActivity(new Intent(VaultActivity.this, AddItemActivity.class));
-        finish();
     }
 
     public void onSettings(View view) {
@@ -83,7 +82,6 @@ public class VaultActivity extends AppCompatActivity {
                 Intent intent = new Intent(VaultActivity.this, ViewActivity.class);
                 intent.putExtra("websiteName", websiteName);
                 startActivity(intent);
-                finish();
             }
         });
 
