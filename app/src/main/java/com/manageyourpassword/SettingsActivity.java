@@ -85,14 +85,14 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void onBackVault(View view) {
-        startActivity(new Intent(SettingsActivity.this, VaultActivity.class));
+        //startActivity(new Intent(SettingsActivity.this, VaultActivity.class));
         finish();
     }
 
     public void onLogout(View view) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.signOut();
-        startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
+        startActivity(new Intent(SettingsActivity.this, LoginMergedActivity.class));
         finish();
     }
 

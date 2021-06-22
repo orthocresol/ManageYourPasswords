@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText email;
     private EditText password;
+    ProgressBar progressBar;
 
     String textEmail;
     String textPassword;
@@ -36,19 +38,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void onLogin(View view) {
-        bindLabels();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        onLogin();
+    }
+
+    public void onLogin() {
+        //bindLabels();
         bindStrings();
-        if(!TextUtils.isEmpty(textEmail) && !TextUtils.isEmpty(textPassword)) {
+        loginUser(textEmail, textPassword);
+        /*if(!TextUtils.isEmpty(textEmail) && !TextUtils.isEmpty(textPassword)) {
             loginUser(textEmail, textPassword);
         }
         else {
             Toast.makeText(LoginActivity.this, "Empty Credentials", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void onRegister(View view) {
-        startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+        startActivity(new Intent(LoginActivity.this, SignUpMergedActivity.class));
         finish();
     }
 
@@ -64,20 +73,27 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Toast.makeText(LoginActivity.this, "Email and password does not match", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, LoginMergedActivity.class);
+                    intent.putExtra("error", "exits");
+                    startActivity(intent);
+                    finish();
+                    //Toast.makeText(LoginActivity.this, "Email and password does not match", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void bindLabels() {
+/*    private void bindLabels() {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-    }
+    }*/
 
     private void bindStrings() {
-        textEmail = email.getText().toString();
-        textPassword = password.getText().toString();
+        /*textEmail = email.getText().toString();
+        textPassword = password.getText().toString();*/
+
+        textEmail = getIntent().getStringExtra("username");
+        textPassword = getIntent().getStringExtra("password");
     }
 
     private void autoLogin() {

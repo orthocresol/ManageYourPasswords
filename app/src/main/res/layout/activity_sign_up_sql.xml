@@ -1,65 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivitySQL">
-
-    <EditText
-        android:id="@+id/register_email"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:drawableLeft="@drawable/icon_person"
-        android:ems="10"
-        android:hint="  username"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/register_password"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:drawableLeft="@drawable/icon_lock"
-        android:ems="10"
-        android:hint="  password"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/register_email"
-        app:layout_constraintTop_toBottomOf="@+id/register_email" />
-
-    <Button
-        android:id="@+id/register_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="64dp"
-        android:text="Register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_password" />
-
-    <Button
-        android:id="@+id/register_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="79dp"
-        android:text="Log in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/register_register" />
+    tools:context=".SignUpMergedActivity">
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
+        android:text="Registration"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:id="@+id/signup_tv_1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/signup_tv_1"
+        android:textSize="20dp"
+        android:text="2 of 2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/signup_tv_2"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/signup_tv_2"
+        android:layout_marginTop="50dp"
+        android:hint="Username"
+        android:id="@+id/register_email"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/register_email"
+        android:layout_marginTop="5dp"
+        android:hint="Password"
+        android:id="@+id/register_password"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/register_password"
+        android:layout_marginTop="5dp"
+        android:hint="Confirm Password"
+        android:id="@+id/register_confirm_password"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
         android:text="Register"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/register_confirm_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/register_register"/>
+</RelativeLayout>

@@ -32,7 +32,7 @@ public class SettingsActivitySQL extends AppCompatActivity {
             public void onClick(View v) {
                 sessionManagerSQL.setUsername("");
                 sessionManagerSQL.setLogin(false);
-                Intent intent = new Intent(SettingsActivitySQL.this, LoginActivitySQL.class);
+                Intent intent = new Intent(SettingsActivitySQL.this, LoginMergedActivity.class);
                 startActivity(intent);
                 finish();
             }

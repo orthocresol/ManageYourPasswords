@@ -15,6 +15,38 @@ public class LoginActivitySQL extends AppCompatActivity {
     SessionManagerSQL sessionManagerSQL;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        String username = getIntent().getStringExtra("username");
+        String password = getIntent().getStringExtra("password");
+        //username cannot contain dots -> implement
+        if (authenticateUser(username, password)) {
+            Intent intent = new Intent(LoginActivitySQL.this, LoginMergedActivity.class);
+            intent.putExtra("error", "exits");
+            startActivity(intent);
+            finish();
+        }
+
+        DatabaseHelper db = new DatabaseHelper(LoginActivitySQL.this);
+        Boolean status = db.authenticate(username, password);
+        if(status){
+            sessionManagerSQL.setLogin(true);
+            sessionManagerSQL.setUsername(username);
+            Toast.makeText(LoginActivitySQL.this, "Login successful", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivitySQL.this, DashboardActivitySQL.class);
+            //intent.putExtra("identifier", username);
+            startActivity(intent);
+            finish();
+        }
+        else {
+            Intent intent = new Intent(LoginActivitySQL.this, LoginMergedActivity.class);
+            intent.putExtra("error", "exits");
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_sql);
@@ -51,8 +83,8 @@ public class LoginActivitySQL extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //authentication
-                String username = et_username.getText().toString().trim();
-                String password = et_password.getText().toString();
+                String username = getIntent().getStringExtra("username");
+                String password = getIntent().getStringExtra("password");
                 //username cannot contain dots -> implement
                 if (authenticateUser(username, password)) return;
 

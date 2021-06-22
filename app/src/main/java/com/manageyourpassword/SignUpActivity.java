@@ -37,7 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+        startActivity(new Intent(SignUpActivity.this, SignUpMergedActivity.class));
         finish();
     }
 

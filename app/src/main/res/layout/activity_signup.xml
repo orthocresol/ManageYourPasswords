@@ -6,11 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:id="@+id/signup_tv_1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/signup_tv_1"
+        android:textSize="20dp"
+        android:text="2 of 2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/signup_tv_2"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/signup_tv_2"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:hint="Name"

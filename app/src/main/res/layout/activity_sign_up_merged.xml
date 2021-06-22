@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpMergedActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:id="@+id/signup_tv_1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/signup_tv_1"
+        android:textSize="20dp"
+        android:text="1 of 2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/signup_tv_2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your Database"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_below="@id/signup_tv_2"
+        android:layout_marginTop="20dp"
+        android:id="@+id/signup_tv_3"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_tv_3"
+        android:text="Offline Database"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:checked="true"
+        android:layout_marginTop="40dp"
+        android:id="@+id/signup_checkbox_Offline"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_checkbox_Offline"
+        android:text="Data will be stored in local storage"
+        android:id="@+id/signup_point_offline_1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_1"
+        android:text="Need no active internet connection"
+        android:id="@+id/signup_point_offline_2"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_2"
+        android:text="Faster data retrieve and store operations"
+        android:id="@+id/signup_point_offline_3"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_3"
+        android:text="Has no back up in accidental scenarios"
+        android:id="@+id/signup_point_offline_4"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_4"
+        android:text="Online Database"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/signup_checkbox_Online"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_checkbox_Online"
+        android:text="Data will be stored online"
+        android:id="@+id/signup_point_offline_5"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_5"
+        android:text="Need active internet connection"
+        android:id="@+id/signup_point_offline_6"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_6"
+        android:text="Auto sync in multiple devices"
+        android:id="@+id/signup_point_offline_7"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_tv_3"
+        android:layout_below="@+id/signup_point_offline_7"
+        android:text="Slower data transfer speed"
+        android:id="@+id/signup_point_offline_8"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="Next"
+        android:layout_below="@id/signup_point_offline_8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/sign_up_button_next"/>
+</RelativeLayout>

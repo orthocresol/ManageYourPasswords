@@ -8,32 +8,26 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
-    Button btn_sql, btn_firebase;
+
+
+    Button btn_proceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        btn_proceed = findViewById(R.id.splash_proceed);
 
-        btn_firebase = findViewById(R.id.splashFirebase);
-        btn_sql = findViewById(R.id.splashSQL);
-
-        btn_sql.setOnClickListener(new View.OnClickListener() {
+        btn_proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SplashScreenActivity.this, LoginActivitySQL.class);
+                Intent intent = new Intent(SplashScreenActivity.this, LoginMergedActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        btn_firebase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
     }
 }
