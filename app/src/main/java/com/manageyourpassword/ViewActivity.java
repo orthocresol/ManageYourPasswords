@@ -27,13 +27,14 @@ public class ViewActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
+        setTitle("View Item");
         showInfo();
     }
 
-    public void onBackClick(View view) {
-        startActivity(new Intent(ViewActivity.this, VaultActivity.class));
+/*    public void onBackClick(View view) {
+        //startActivity(new Intent(ViewActivity.this, VaultActivity.class));
         finish();
-    }
+    }*/
 
     public void onChange(View view) {
 
@@ -57,6 +58,7 @@ public class ViewActivity extends AppCompatActivity {
                     intent.putExtra("password", passwordFromDb);
                     intent.putExtra("url", urlFromDb);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(ViewActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -80,7 +82,7 @@ public class ViewActivity extends AppCompatActivity {
         reference.child("Website Info").child(webSiteName).setValue(null);
         reference.child("Website Names").child(webSiteName).setValue(null);
 
-        startActivity(new Intent(ViewActivity.this, VaultActivity.class));
+        //startActivity(new Intent(ViewActivity.this, VaultActivity.class));
         finish();
     }
 

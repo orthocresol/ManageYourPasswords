@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ViewActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/backButton"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:text="back"
-        android:onClick="onBackClick"
-        />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

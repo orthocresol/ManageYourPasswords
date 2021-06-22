@@ -34,9 +34,12 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".VaultActivity" />
-        <activity android:name=".AddItemActivity" />
-        <activity android:name=".ViewActivity" />
-        <activity android:name=".UpdateActivity" />
+        <activity android:name=".AddItemActivity"
+            android:parentActivityName=".VaultActivity"/>
+        <activity android:name=".ViewActivity"
+            android:parentActivityName=".VaultActivity"/>
+        <activity android:name=".UpdateActivity"
+            android:parentActivityName=".ViewActivity"/>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ChangePasswordActivity" />
     </application>

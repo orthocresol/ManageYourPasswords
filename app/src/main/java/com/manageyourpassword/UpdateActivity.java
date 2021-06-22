@@ -32,10 +32,20 @@ public class UpdateActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+        setTitle("Update Item");
         showPrevInfo();
     }
 
-    public void onBackPress(View view) {
+/*    public void onBackPress(View view) {
+        bindUpdatedStrings();
+        Intent intent = new Intent(UpdateActivity.this, ViewActivity.class);
+        intent.putExtra("websiteName", updatedName);
+        startActivity(intent);
+        finish();
+    }*/
+
+    @Override
+    public void onBackPressed() {
         bindUpdatedStrings();
         Intent intent = new Intent(UpdateActivity.this, ViewActivity.class);
         intent.putExtra("websiteName", updatedName);

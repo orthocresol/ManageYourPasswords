@@ -29,6 +29,7 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        setTitle("Add Item");
         bindLabels();
     }
 
@@ -52,10 +53,10 @@ public class AddItemActivity extends AppCompatActivity {
         }
     }
 
-    public void onBack(View view) {
-        startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
+/*    public void onBack(View view) {
+        //startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
         finish();
-    }
+    }*/
 
     private void bindLabels() {
         webName = findViewById(R.id.websiteName);

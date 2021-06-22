@@ -28,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        setTitle("Settings");
         handleLoginState();
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();

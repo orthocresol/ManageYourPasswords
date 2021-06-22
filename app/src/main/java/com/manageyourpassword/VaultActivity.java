@@ -28,6 +28,7 @@ public class VaultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vault);
+        setTitle("Logins");
         showList();
     }
 
@@ -39,7 +40,11 @@ public class VaultActivity extends AppCompatActivity {
         return currentEmail;
     }
 
-    public void onAdd(View view) {
+/*    public void onAdd(View view) {
+        startActivity(new Intent(VaultActivity.this, AddItemActivity.class));
+    }*/
+
+    public void onAdd_floatingButton(View view) {
         startActivity(new Intent(VaultActivity.this, AddItemActivity.class));
     }
 
