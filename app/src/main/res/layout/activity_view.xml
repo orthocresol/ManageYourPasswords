@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:hint="Name"
         android:layout_below="@+id/viewItemImageView"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -25,6 +26,7 @@
         android:layout_below="@id/Name"
         android:layout_marginTop="30dp"
         android:textSize="15sp"
+        android:hint="Username"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:id="@+id/User_email"
@@ -35,11 +37,44 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/User_email"
         android:layout_marginTop="30dp"
+        android:hint="Password"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:id="@+id/Webpass"
         />
+
+    <ImageButton
+        android:id="@+id/viewItemCopyF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="100dp"
+        android:layout_alignParentRight="true"
+        android:background="?android:selectableItemBackground"
+        android:layout_alignTop="@+id/User_email"
+        app:srcCompat="@drawable/ic_copy" />
+
+    <ImageButton
+        android:id="@+id/viewItemCopyPasswordF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="100dp"
+        android:layout_alignParentRight="true"
+        android:background="?android:selectableItemBackground"
+        android:layout_alignTop="@+id/Webpass"
+        app:srcCompat="@drawable/ic_copy" />
+
+    <ImageButton
+        android:id="@+id/viewItemLaunchF"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+
+        android:layout_alignTop="@+id/Url"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100dp"
+        app:srcCompat="@drawable/ic_launch" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,6 +83,7 @@
         android:layout_marginTop="30dp"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:hint="URL"
         android:textColor="@color/black"
         android:id="@+id/Url"
         />
