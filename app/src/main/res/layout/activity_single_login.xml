@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingleLoginActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/log_tv1"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="username/email"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/log_tv1"
+        android:layout_marginTop="50dp"
+        android:id="@+id/log_email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/log_email"
+        android:layout_marginTop="5dp"
+        android:id="@+id/log_password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/log_password"
+        android:id="@+id/log_login_button"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/log_login_button"
+        android:text="new user?"
+        android:id="@+id/log_tv2"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/log_tv2"
+        android:layout_marginTop="50dp"
+        android:id="@+id/log_register_button" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/log_register_button"
+        android:id="@+id/log_progressbar" />
+
+
+
+
+
+
+
+
+</RelativeLayout>

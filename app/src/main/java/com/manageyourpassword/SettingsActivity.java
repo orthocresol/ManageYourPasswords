@@ -92,7 +92,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void onLogout(View view) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.signOut();
-        startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
+        startActivity(new Intent(SettingsActivity.this, SingleLoginActivity.class));
         finish();
     }
 
