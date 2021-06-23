@@ -2,6 +2,7 @@ package com.manageyourpassword;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 public class ViewActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class ViewActivity extends AppCompatActivity {
     private TextView userEmail;
     private TextView password;
     private TextView url;
+    ImageView imageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +110,13 @@ public class ViewActivity extends AppCompatActivity {
                     userEmail.setText("Username/Email: " + userOrEmail);
                     password.setText("Password: " + passwordFromDb);
                     url.setText("URL: " + urlFromDb);
+
+                    String dest = "https://logo.clearbit.com/" + urlFromDb;
+                    Picasso.get()
+                            .load(dest)
+                            .placeholder(R.drawable.ic_baseline_web_24)
+                            .error(R.drawable.ic_baseline_web_24)
+                            .into(imageView);
                 }
                 else {
                     Toast.makeText(ViewActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -126,6 +136,8 @@ public class ViewActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.User_email);
         password = findViewById(R.id.Webpass);
         url = findViewById(R.id.Url);
+
+        imageView = findViewById(R.id.viewItemImageView);
     }
 
     private String getIntentString() {

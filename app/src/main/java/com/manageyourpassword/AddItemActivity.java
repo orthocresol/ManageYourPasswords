@@ -48,7 +48,7 @@ public class AddItemActivity extends AppCompatActivity {
             reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
             reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
 
-            startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
+            //startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
             finish();
         }
     }

@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/changePassword"
         android:layout_centerInParent="true"
-        android:text="Save Login State"
+        android:text="Disable auto logout"
         android:layout_marginTop="50dp"
         android:id="@+id/loginState"
         />

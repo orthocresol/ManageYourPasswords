@@ -33,11 +33,12 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setTitle("Registration");
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+        startActivity(new Intent(SignUpActivity.this, RegisterActivity.class));
         finish();
     }
 

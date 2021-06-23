@@ -2,6 +2,7 @@ package com.manageyourpassword;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class SettingsActivitySQL extends AppCompatActivity {
     Button btn_logout;
     SessionManagerSQL sessionManagerSQL;
     BottomNavigationView bottomNavigationView;
+    SwitchCompat switchCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,19 @@ public class SettingsActivitySQL extends AppCompatActivity {
         btn_logout = findViewById(R.id.settingsLogout);
         sessionManagerSQL = new SessionManagerSQL(getApplicationContext());
         bottomNavigationView.setSelectedItemId(R.id.settings);
+        switchCompat = findViewById(R.id.settings_switch_logout);
+
+        switchCompat.setChecked(sessionManagerSQL.getAutoLogin());
+
+
+        switchCompat.setOnClickListener(v -> {
+            if(switchCompat.isChecked()) {
+                sessionManagerSQL.setAutoLogin(true);
+            }
+            else {
+                sessionManagerSQL.setAutoLogin(false);
+            }
+        });
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

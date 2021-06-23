@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ViewActivity">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/viewItemImageView"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -71,7 +74,14 @@
         android:onClick="onDeleteItem"
         />
 
-
+    <ImageView
+        android:id="@+id/viewItemImageView"
+        android:layout_width="83dp"
+        android:layout_height="78dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
 
 
 </RelativeLayout>

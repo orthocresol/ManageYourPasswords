@@ -36,6 +36,7 @@ public class SingleLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_login);
+        setTitle("Sign In");
 
         initVariable();
         clickListeners();
@@ -109,7 +110,7 @@ public class SingleLoginActivity extends AppCompatActivity {
     }
 
     private boolean autoLoginForSqlite() {
-        if(sessionManagerSQL.getLogin()){
+        if(sessionManagerSQL.getLogin() && sessionManagerSQL.getAutoLogin()){
             Intent intent = new Intent(SingleLoginActivity.this, DashboardActivitySQL.class);
             startActivity(intent);
             finish();
@@ -124,7 +125,8 @@ public class SingleLoginActivity extends AppCompatActivity {
         });
 
         btn_register.setOnClickListener(v -> {
-            // go to register activity
+            startActivity(new Intent(SingleLoginActivity.this, RegisterActivity.class));
+            finish();
         });
     }
 
@@ -179,6 +181,7 @@ public class SingleLoginActivity extends AppCompatActivity {
         Boolean status = db.authenticate(email, password);
 
         if(status){
+
             sessionManagerSQL.setLogin(true);
             sessionManagerSQL.setUsername(email);
             Toast.makeText(SingleLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();

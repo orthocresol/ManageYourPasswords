@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:id="@+id/reg_tv_1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Part 1 of 2"
+        android:layout_below="@+id/reg_tv_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:id="@+id/reg_tv_2"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Database"
+        android:layout_below="@+id/reg_tv_2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:id="@+id/reg_tv_3"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offline Database"
+        android:layout_marginTop="50dp"
+        android:layout_alignLeft="@+id/reg_tv_3"
+        android:layout_below="@id/reg_tv_3"
+        android:id="@+id/reg_checkbox_offline"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reg_checkbox_offline"
+        android:text=" Uses local storage \n Needs no active internet connection \n Performs faster store and retrieve operations \n Provides no back up if system fails"
+        android:layout_below="@id/reg_checkbox_offline"
+        android:id="@+id/reg_tv_4"
+        android:layout_marginLeft="35dp"/>
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Online Database"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/reg_checkbox_offline"
+        android:layout_below="@id/reg_tv_4"
+        android:id="@+id/reg_checkbox_online"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reg_checkbox_online"
+        android:text=" Uses cloud storage \n Needs an active internet connection \n Performs slower store and retrieve operations \n Provides cloud back up if system fails \n Provides auto-sync in multiple devices"
+        android:layout_below="@id/reg_checkbox_online"
+
+        android:id="@+id/reg_tv_5"
+        android:layout_marginLeft="35dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_below="@+id/reg_tv_5"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/reg_next"/>
+
+
+</RelativeLayout>

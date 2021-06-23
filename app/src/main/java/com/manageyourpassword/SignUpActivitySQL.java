@@ -18,9 +18,9 @@ public class SignUpActivitySQL extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_sql);
-        setTitle("Sign up");
+        setTitle("Registration");
 
-        btn_login = findViewById(R.id.register_login);
+
         btn_register = findViewById(R.id.register_register);
         et_username = findViewById(R.id.register_email);
         et_password = findViewById(R.id.register_password);
@@ -60,14 +60,12 @@ public class SignUpActivitySQL extends AppCompatActivity {
             }
         });
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivitySQL.this, LoginActivitySQL.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SignUpActivitySQL.this, RegisterActivity.class));
+        finish();
     }
 
     private Boolean validate(String username, String password) {

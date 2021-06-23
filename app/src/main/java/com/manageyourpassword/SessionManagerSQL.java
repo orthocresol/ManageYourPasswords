@@ -19,6 +19,15 @@ public class SessionManagerSQL {
     public Boolean getLogin(){
         return sharedPreferences.getBoolean("KEY_LOGIN", false);
     }
+
+    public void setAutoLogin(Boolean login){
+        editor.putBoolean("KEY_AUTO_LOGIN", login);
+        editor.commit();
+    }
+    public Boolean getAutoLogin(){
+        return sharedPreferences.getBoolean("KEY_AUTO_LOGIN", false);
+    }
+
     public void setUsername(String name){
         editor.putString("KEY_USERNAME", name);
         editor.commit();
@@ -26,4 +35,6 @@ public class SessionManagerSQL {
     public String getUsername(){
         return sharedPreferences.getString("KEY_USERNAME", "");
     }
+
+
 }
