@@ -37,6 +37,8 @@ public class LoginActivitySQL extends AppCompatActivity {
         }
     }
 
+    //this is a comment;
+
     private void clickListener() {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
