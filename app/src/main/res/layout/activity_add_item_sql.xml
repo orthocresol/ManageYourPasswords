@@ -36,11 +36,11 @@
         android:focusableInTouchMode="true"
         android:layout_marginTop="5dp"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorPrimary"
-        android:id="@+id/addItemName">
+        app:passwordToggleTint="@color/colorPrimary">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/addItemName"
             android:hint="Name"
             android:ems="20"
             android:inputType="textPersonName"
@@ -49,7 +49,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:id="@+id/addItemPassword"
         android:layout_height="wrap_content"
         app:passwordToggleTint="@color/colorPrimary"
         app:passwordToggleEnabled="true"
@@ -59,6 +58,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/addItemPassword"
             android:hint="Password"
             android:ems="20"
             android:inputType="textPassword"
@@ -70,13 +70,13 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:id="@+id/addItemUsername"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/colorPrimary"
         android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/addItemUsername"
             android:hint="Username"
             android:ems="20"
             android:inputType="textEmailAddress"
@@ -90,14 +90,14 @@
         android:focusableInTouchMode="true"
         app:passwordToggleTint="@color/colorPrimary"
         app:passwordToggleEnabled="true"
-        android:id="@+id/addItemUrl"
         android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/addItemUrl"
             android:hint="URL"
             android:ems="20"
-            android:inputType="textPersonName"
+            android:inputType="textUri"
             android:textSize="22sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 

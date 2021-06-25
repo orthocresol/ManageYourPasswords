@@ -29,7 +29,6 @@
     <ListView
         android:id="@+id/websites"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/add" />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
