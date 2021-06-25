@@ -13,16 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.squareup.picasso.Picasso;
 
 public class ViewItemActivitySQL extends AppCompatActivity {
-    Button btn_update, btn_delete;
+    ImageButton btn_update, btn_delete;
     TextView tv_name, tv_username, tv_password, tv_url;
     ImageView iv_logo;
     String identifier;
@@ -38,12 +35,12 @@ public class ViewItemActivitySQL extends AppCompatActivity {
         setTitle("View Item");
 
         identifier = getIntent().getStringExtra("identifier");
-        btn_update = findViewById(R.id.viewItemUpdate);
-        btn_delete = findViewById(R.id.viewItemDelete);
-        tv_name = findViewById(R.id.viewItemName);
-        tv_username = findViewById(R.id.viewItemUsername);
-        tv_password = findViewById(R.id.viewItemPassword);
-        tv_url = findViewById(R.id.viewItemUrl);
+        btn_update = findViewById(R.id.updateF);
+        btn_delete = findViewById(R.id.Delete);
+        tv_name = findViewById(R.id.Name);
+        tv_username = findViewById(R.id.User_email);
+        tv_password = findViewById(R.id.Webpass);
+        tv_url = findViewById(R.id.Url);
         iv_logo = findViewById(R.id.viewItemLogo);
         id = getIntent().getIntExtra("id", 0);
         btn_copy = findViewById(R.id.viewItemCopy);

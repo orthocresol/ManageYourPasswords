@@ -1,123 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/plain_purple"
+    android:orientation="vertical"
     tools:context=".ViewActivity">
 
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="Name"
-        android:layout_below="@+id/viewItemImageView"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:id="@+id/Name"
-        />
+        android:layout_height="620dp"
+        android:orientation="vertical"
+        android:padding="25dp"
+        tools:context=".ViewItemActivitySQL">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Name"
-        android:layout_marginTop="30dp"
-        android:textSize="15sp"
-        android:hint="Username"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:id="@+id/User_email"
-        />
+        <ImageView
+            android:id="@+id/viewItemImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:background="@drawable/plain_purple"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:srcCompat="@drawable/ic_baseline_web_24" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/User_email"
-        android:layout_marginTop="30dp"
-        android:hint="Password"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:id="@+id/Webpass"
-        />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/caesar_dressing"
+            android:shadowColor="#E41A07"
+            android:text="VIEW YOUR ITEM"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColor="#FA06F4D1"
+            android:paddingTop="10dp"
+            android:paddingBottom="0dp"
+            android:textColorHighlight="#3CEA0C"
+            android:textSize="34sp" />
 
-    <ImageButton
-        android:id="@+id/viewItemCopyF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_alignParentRight="true"
-        android:background="?android:selectableItemBackground"
-        android:layout_alignTop="@+id/User_email"
-        app:srcCompat="@drawable/ic_copy" />
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/audiowide"
+            android:padding="10dp"
+            android:shadowColor="#E41A07"
+            android:text="NAME: Instagram"
+            android:textColor="#FA22DDDD"
+            android:textColorHighlight="#3CEA0C"
+            android:textSize="20sp" />
 
-    <ImageButton
-        android:id="@+id/viewItemCopyPasswordF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_alignParentRight="true"
-        android:background="?android:selectableItemBackground"
-        android:layout_alignTop="@+id/Webpass"
-        app:srcCompat="@drawable/ic_copy" />
+        <TextView
+            android:id="@+id/User_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/audiowide"
+            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:shadowColor="#E41A07"
+            android:text="USERNAME: aliftheruslan"
+            android:textColor="#FA22DDDD"
+            android:textColorHighlight="#3CEA0C"
+            android:textSize="20sp" />
 
-    <ImageButton
-        android:id="@+id/viewItemLaunchF"
-        android:layout_width="wrap_content"
+        <ImageButton
+            android:id="@+id/viewItemCopyF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/purple_700"
+            app:srcCompat="@drawable/ic_baseline_content_copy_24" />
 
-        android:layout_height="wrap_content"
-        android:background="?android:selectableItemBackground"
+        <TextView
+            android:id="@+id/Webpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:shadowColor="#E41A07"
+            android:text="PASSWORD: ka23ahduf7yr"
+            android:textColor="#FA22DDDD"
+            android:textColorHighlight="#3CEA0C"
+            android:textSize="20sp" />
 
-        android:layout_alignTop="@+id/Url"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="100dp"
-        app:srcCompat="@drawable/ic_launch" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Webpass"
-        android:layout_marginTop="30dp"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:hint="URL"
-        android:textColor="@color/black"
-        android:id="@+id/Url"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Url"
-        android:layout_marginLeft="70dp"
-        android:id="@+id/update"
-        android:layout_marginTop="50dp"
-        android:text="Update Item"
-        android:onClick="onChange"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Url"
-        android:layout_marginLeft="240dp"
-        android:id="@+id/Delete"
-        android:layout_marginTop="50dp"
-        android:text="Delete Item"
-        android:onClick="onDeleteItem"
-        />
-
-    <ImageView
-        android:id="@+id/viewItemImageView"
-        android:layout_width="83dp"
-        android:layout_height="78dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        <ImageButton
+            android:id="@+id/viewItemCopyPasswordF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/purple_700"
+            app:srcCompat="@drawable/ic_baseline_content_copy_24" />
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/Url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:shadowColor="#E41A07"
+            android:text="URL: www.instagram.com"
+            android:textColor="#FA22DDDD"
+            android:textColorHighlight="#3CEA0C"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/viewItemLaunchF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/purple_700"
+            app:srcCompat="@drawable/ic_launch" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="25dp"
+        tools:context=".ViewItem">
+        <ImageButton
+            android:id="@+id/Delete"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="55dp"
+            android:background="@color/purple_700"
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            android:onClick="onDeleteItem"
+            />
+        <ImageButton
+            android:id="@+id/updateF"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/purple_700"
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            android:onClick="onChange"
+             />
+    </LinearLayout>
+
+</LinearLayout>
