@@ -11,12 +11,16 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class SettingsActivitySQL extends AppCompatActivity {
     Button btn_logout;
     SessionManagerSQL sessionManagerSQL;
     BottomNavigationView bottomNavigationView;
     SwitchCompat switchCompat;
+    MaterialButton tohide;
+    SwitchMaterial tohide2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,11 @@ public class SettingsActivitySQL extends AppCompatActivity {
         setContentView(R.layout.activity_settings_sql);
 
         setTitle("Settings");
+        tohide = findViewById(R.id.changeFont_sql);
+        tohide.setVisibility(View.INVISIBLE);
+
+        tohide2 = findViewById(R.id.switch_mode_sql);
+        tohide2.setVisibility(View.INVISIBLE);
 
         bottomNavigationView = findViewById(R.id.generatorNavigation);
         btn_logout = findViewById(R.id.settingsLogout);

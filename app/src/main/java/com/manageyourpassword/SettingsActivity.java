@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +27,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat loginState;
     BottomNavigationView bottomNavigationView;
-
+    MaterialButton tohide;
+    SwitchMaterial tohide2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,11 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         setTitle("Settings");
         handleLoginState();
+
+        tohide = findViewById(R.id.changeFont);
+        tohide.setVisibility(View.INVISIBLE);
+        tohide2 = findViewById(R.id.switch_mode);
+        tohide2.setVisibility(View.INVISIBLE);
         bottomNavigationView = findViewById(R.id.generatorNavigation);
         bottomNavigationView.setSelectedItemId(R.id.settings);
         FirebaseDatabase db = FirebaseDatabase.getInstance();
