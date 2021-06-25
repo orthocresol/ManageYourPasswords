@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,8 +27,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SingleLoginActivity extends AppCompatActivity {
-    Button btn_login, btn_register;
-    EditText et_email, et_password;
+    Button btn_login;
+    MaterialTextView btn_register;
+    EditText et_email;
+    TextInputEditText et_password;
     String email, password;
     ProgressBar progressBar;
     SessionManagerSQL sessionManagerSQL;
@@ -48,9 +52,9 @@ public class SingleLoginActivity extends AppCompatActivity {
 
     private void disappearVariables() {
         TextView tv = findViewById(R.id.log_tv1);
-        TextView tv2 = findViewById(R.id.log_tv2);
+
         tv.setVisibility(View.INVISIBLE);
-        tv2.setVisibility(View.INVISIBLE);
+
         btn_register.setVisibility(View.INVISIBLE);
         btn_login.setVisibility(View.INVISIBLE);
         et_email.setVisibility(View.INVISIBLE);
@@ -93,9 +97,9 @@ public class SingleLoginActivity extends AppCompatActivity {
     }
     private void reappearVariables(){
         TextView tv = findViewById(R.id.log_tv1);
-        TextView tv2 = findViewById(R.id.log_tv2);
+
         tv.setVisibility(View.VISIBLE);
-        tv2.setVisibility(View.VISIBLE);
+
         btn_register.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.VISIBLE);
         et_email.setVisibility(View.VISIBLE);

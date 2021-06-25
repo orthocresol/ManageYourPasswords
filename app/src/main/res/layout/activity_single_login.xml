@@ -1,79 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@drawable/login_back"
     android:layout_height="match_parent"
     tools:context=".SingleLoginActivity">
 
-
     <TextView
+        android:id="@+id/log_tv1"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
         android:text="Log in"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/log_tv1"/>
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="username/email"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/log_tv1"
-        android:layout_marginTop="50dp"
         android:id="@+id/log_email"
-        android:inputType="textEmailAddress"/>
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:drawableStart="@drawable/icon_person"
+        android:ems="10"
+        android:hint="  Username"
+        android:inputType="textEmailAddress"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/log_password"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableStart="@drawable/icon_lock"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        app:passwordToggleEnabled="true"
+        android:hint="  Password"
+        android:textSize="22sp"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/log_email"
+        app:layout_constraintTop_toBottomOf="@+id/log_email" />
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="password"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/log_email"
-        android:layout_marginTop="5dp"
-        android:id="@+id/log_password"
-        android:inputType="textPassword"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/log_password"
-        android:id="@+id/log_login_button"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/log_login_button"
-        android:text="new user?"
-        android:id="@+id/log_tv2"
-        android:layout_marginTop="50dp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="register"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/log_tv2"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:id="@+id/log_register_button" />
+        android:text="Login"
+        android:textStyle="bold"
+        android:id="@+id/log_login_button"
+        android:backgroundTint="#2E59A3"
+        android:textColor="@color/white"
+        app:icon="@drawable/login_icon"
+        app:iconGravity="textEnd"
+        app:iconTint="#F4DC07"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not a user yet? Register now!"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22sp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/log_register_button"
+        android:focusableInTouchMode="true"
+        android:textColor="#8F072A"/>
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/log_register_button"
-        android:id="@+id/log_progressbar" />
+        android:id="@+id/log_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-
-
-
-
-
-
-
-</RelativeLayout>
+</LinearLayout>
