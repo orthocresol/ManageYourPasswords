@@ -6,27 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity">
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:text="This will be a splash screen"
+    <ImageView
+        android:id="@+id/main_imageview"
+        android:layout_width="322dp"
+        android:layout_height="337dp"
+        android:layout_marginTop="228dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:transitionName="main_logo_image"
+        app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/splash_proceed"
+    <TextView
+        android:id="@+id/main_slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proceed"
+        android:layout_marginBottom="228dp"
+        android:fontFamily="@font/bangers"
+        android:text="Reliability 100%"
+        android:textSize="25sp"
+        android:transitionName="main_logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
