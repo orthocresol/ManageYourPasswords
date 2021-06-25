@@ -35,6 +35,13 @@ public class SessionManagerSQL {
     public String getUsername(){
         return sharedPreferences.getString("KEY_USERNAME", "");
     }
+    public  void setKey(int key){
+        editor.putInt("KEY_CIPHER", key);
+        editor.commit();
+    }
 
+    public int getKey(){
+        return sharedPreferences.getInt("KEY_CIPHER", -1);
+    }
 
 }

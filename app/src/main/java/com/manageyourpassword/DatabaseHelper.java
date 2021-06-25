@@ -13,9 +13,10 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-
+    Context context;
     public DatabaseHelper(@Nullable Context context) {
         super(context, "Database.db", null, 1);
+        this.context = context;
     }
 
     @Override
@@ -94,7 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String password = cursor.getString(3);
                 String url = cursor.getString(4);
 
-                Item item = new Item(id, name, username, password, url);
+                Item item = new Item(id, decrypt(name), decrypt(username), decrypt(password), decrypt(url));
                 returnList.add(item);
             } while(cursor.moveToNext());
         }
@@ -104,6 +105,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
+    }
+
+    private String decrypt(String s){
+        String toReturn = Encryption.decrypt(s, new SessionManagerSQL(context).getKey());
+        return toReturn;
     }
 
     @Override

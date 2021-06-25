@@ -47,6 +47,9 @@ public class SignUpActivitySQL extends AppCompatActivity {
                     sessionManagerSQL.setLogin(true);
                     sessionManagerSQL.setUsername(username);
 
+                    int key = Encryption.generateKey();
+                    sessionManagerSQL.setKey(key);
+
 
                     Intent intent = new Intent(SignUpActivitySQL.this, DashboardActivitySQL.class);
                     //intent.putExtra("identifier", username);

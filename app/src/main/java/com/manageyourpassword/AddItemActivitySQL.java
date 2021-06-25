@@ -51,7 +51,7 @@ public class AddItemActivitySQL extends AppCompatActivity {
                     return;
                 }
 
-                Item item = new Item(-1, name, username, password, url);
+                Item item = new Item(-1, encrypt(name), encrypt(username), encrypt(password), encrypt(url));
                 DatabaseHelper db = new DatabaseHelper(AddItemActivitySQL.this);
                 int row = db.insert(identifier, item);
                 if(row != -1){
@@ -65,5 +65,9 @@ public class AddItemActivitySQL extends AppCompatActivity {
 
             }
         });
+    }
+    private String encrypt(String s){
+        String toReturn = Encryption.encrypt(s, new SessionManagerSQL(getApplicationContext()).getKey());
+        return toReturn;
     }
 }
