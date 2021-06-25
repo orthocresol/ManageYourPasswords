@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageYourPassword">
-        <activity android:name=".FirstScreenActivity" android:theme="@style/NoActionBarIrritating">
-
+        <activity android:name=".GeneratorActivityFirebase"></activity>
+        <activity
+            android:name=".FirstScreenActivity"
+            android:theme="@style/NoActionBarIrritating">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,9 +37,7 @@
         <activity android:name=".DashboardActivitySQL" />
         <activity android:name=".SignUpActivitySQL" />
         <activity android:name=".LoginActivitySQL" />
-        <activity android:name=".SplashScreenActivity">
-
-        </activity>
+        <activity android:name=".SplashScreenActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".VaultActivity" />

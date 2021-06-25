@@ -8,10 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat loginState;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -30,7 +33,8 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         setTitle("Settings");
         handleLoginState();
-
+        bottomNavigationView = findViewById(R.id.generatorNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.settings);
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference reference = db.getReference();
         String currentEmail = VaultActivity.getTrackingEmail();
@@ -46,8 +50,35 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+        setNavigationBar();
     }
+    private void setNavigationBar() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+                switch (item.getItemId()){
+                    case R.id.settings:
+                        return true;
+                    case R.id.dashboard:
+                        intent = new Intent(SettingsActivity.this, VaultActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                        finish();
+                        return true;
 
+                    case R.id.generator:
+                        intent = new Intent(SettingsActivity.this, GeneratorActivityFirebase.class);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                        finish();
+                        return true;
+
+                }
+                return false;
+            }
+        });
+    }
     private void handleLoginState() {
 
         String currentEmail = VaultActivity.getTrackingEmail();
