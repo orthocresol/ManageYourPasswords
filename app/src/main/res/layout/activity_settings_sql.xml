@@ -1,21 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "@drawable/settings_back"
+    android:orientation="vertical"
     tools:context=".SettingsActivitySQL">
 
-    <Button
-        android:id="@+id/settingsLogout"
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="Change Font"
+        android:backgroundTint="#970202"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/changeFont_sql"
+        />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#082FB5"
+        android:text="Enable Dark Mode"
+        android:id="@+id/switch_mode_sql"/>
+
+    <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:text="Disable auto logout         "
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#2F8103"
+        android:textStyle="bold"
+        android:id="@+id/settings_switch_logout"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="Log out from your account"
+        android:backgroundTint="#BDA007"
+        android:textColor="@color/white"
+        app:icon="@drawable/logout_icon"
+        android:id="@+id/settingsLogout"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/red"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/generatorNavigation"
@@ -29,14 +76,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Disable auto logout"
-        app:layout_constraintBottom_toTopOf="@+id/settingsLogout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/settings_switch_logout"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
