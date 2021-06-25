@@ -57,6 +57,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/updateItemUsername"
+            android:hint="USERNAME"
+            android:background="#E681C1"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/colorPrimary"
         android:focusable="true"
@@ -73,23 +91,7 @@
             android:textSize="20sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
-        android:focusable="true"
-        android:layout_marginTop="10dp">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/updateItemUsername"
-            android:hint="USERNAME"
-            android:background="#E681C1"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textSize="20sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
