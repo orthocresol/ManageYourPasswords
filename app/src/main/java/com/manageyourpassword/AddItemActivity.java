@@ -43,20 +43,15 @@ public class AddItemActivity extends AppCompatActivity {
             DatabaseReference reference = db.getReference().child("Users").child(findingEmail).child("Websites");
 
             reference.child("Website Names").child(textWebName).setValue(textWebName);
+            reference.child("Website URL").child(textWebName).setValue(textUrl);
             reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
             reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);
             reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
             reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
 
-            //startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
             finish();
         }
     }
-
-/*    public void onBack(View view) {
-        //startActivity(new Intent(AddItemActivity.this, VaultActivity.class));
-        finish();
-    }*/
 
     private void bindLabels() {
         webName = findViewById(R.id.websiteName);
