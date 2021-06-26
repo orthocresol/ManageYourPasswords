@@ -75,11 +75,6 @@ public class ViewActivity extends AppCompatActivity {
         });
     }
 
-/*    public void onBackClick(View view) {
-        //startActivity(new Intent(ViewActivity.this, VaultActivity.class));
-        finish();
-    }*/
-
     private void goToUrl(String toString) {
         toString = "https://" + toString;
         Uri uri = Uri.parse(toString);
@@ -130,8 +125,7 @@ public class ViewActivity extends AppCompatActivity {
         DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
         reference.child("Website Info").child(webSiteName).setValue(null);
         reference.child("Website Names").child(webSiteName).setValue(null);
-
-        //startActivity(new Intent(ViewActivity.this, VaultActivity.class));
+        reference.child("Website URL").child(webSiteName).setValue(null);
         finish();
     }
 

@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 
 public class VaultActivity extends AppCompatActivity {
 
-    private ListView websites;
+    private RecyclerView websites;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -36,14 +38,15 @@ public class VaultActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.generatorNavigation);
         bottomNavigationView.setSelectedItemId(R.id.dashboard);
         setNavigationBar();
-        showList();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        showList();
         bottomNavigationView.setSelectedItemId(R.id.dashboard);
     }
+
     private void setNavigationBar() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -79,36 +82,29 @@ public class VaultActivity extends AppCompatActivity {
         return currentEmail;
     }
 
-/*    public void onAdd(View view) {
-        startActivity(new Intent(VaultActivity.this, AddItemActivity.class));
-    }*/
-
     public void onAdd_floatingButton(View view) {
         startActivity(new Intent(VaultActivity.this, AddItemActivity.class));
     }
 
-    public void onSettings(View view) {
-        startActivity(new Intent(VaultActivity.this, SettingsActivity.class));
-        finish();
-    }
-
     private void showList() {
 
+        ArrayList<VaultItem> itemList = new ArrayList<>();
+        itemList.clear();
+        VaultAdapter adapter =  new VaultAdapter(VaultActivity.this, itemList);
         String currentEmail = getTrackingEmail();
-
         websites = findViewById(R.id.websites);
-        final ArrayList<String> websiteList = new ArrayList<>();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(VaultActivity.this, android.R.layout.simple_list_item_1, websiteList);
-        websites.setAdapter(adapter);
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites").child("Website Names");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                websiteList.clear();
+                int count = 0;
                 for(DataSnapshot snapshot1: snapshot.getChildren()) {
-                    websiteList.add(snapshot1.getValue().toString());
+                    String temp = snapshot1.getValue().toString();
+                    itemList.add(new VaultItem());
+                    itemList.get(count).setWebName(temp);
+                    count++;
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -119,15 +115,26 @@ public class VaultActivity extends AppCompatActivity {
             }
         });
 
-        websites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        DatabaseReference reference1 = db.getReference().child("Users").child(currentEmail).child("Websites").child("Website URL");
+        reference1.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String websiteName = websiteList.get(position);
-                Intent intent = new Intent(VaultActivity.this, ViewActivity.class);
-                intent.putExtra("websiteName", websiteName);
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count = 0;
+                for(DataSnapshot snapshot1: snapshot.getChildren()) {
+                    String url = snapshot1.getValue().toString();
+                    itemList.get(count).setUrls(url);
+                    count++;
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(VaultActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
+        websites.setAdapter(adapter);
+        websites.setLayoutManager(new LinearLayoutManager(this));
     }
 }
