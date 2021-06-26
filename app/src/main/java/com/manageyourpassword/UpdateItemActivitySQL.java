@@ -51,7 +51,7 @@ public class UpdateItemActivitySQL extends AppCompatActivity {
 
                 DatabaseHelper db = new DatabaseHelper(UpdateItemActivitySQL.this);
                 db.delete(identifier, id);
-                Item item = new Item(-1, name, username, password, url);
+                Item item = new Item(-1, encrypt(name), encrypt(username), encrypt(password), encrypt(url));
                 int row_id = db.insert(identifier, item);
                 if(row_id != -1){
                     Toast.makeText(UpdateItemActivitySQL.this, "updated successfully", Toast.LENGTH_SHORT).show();
@@ -72,5 +72,9 @@ public class UpdateItemActivitySQL extends AppCompatActivity {
             }
         });
 
+    }
+    private String encrypt(String s){
+        String toReturn = Encryption.encrypt(s, new SessionManagerSQL(getApplicationContext()).getKey());
+        return toReturn;
     }
 }
