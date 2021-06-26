@@ -36,14 +36,6 @@ public class UpdateActivity extends AppCompatActivity {
         showPrevInfo();
     }
 
-/*    public void onBackPress(View view) {
-        bindUpdatedStrings();
-        Intent intent = new Intent(UpdateActivity.this, ViewActivity.class);
-        intent.putExtra("websiteName", updatedName);
-        startActivity(intent);
-        finish();
-    }*/
-
     @Override
     public void onBackPressed() {
         bindUpdatedStrings();
@@ -61,9 +53,11 @@ public class UpdateActivity extends AppCompatActivity {
         DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
 
         reference.child("Website Names").child(prevName).setValue(null);
+        reference.child("Website URL").child(prevName).setValue(null);
         reference.child("Website Names").child(updatedName).setValue(updatedName);
-        reference.child("Website Info").child(prevName).setValue(null);
+        reference.child("Website URL").child(updatedName).setValue(updatedUrl);
 
+        reference.child("Website Info").child(prevName).setValue(null);
         reference.child("Website Info").child(updatedName).child("Name").setValue(updatedName);
         reference.child("Website Info").child(updatedName).child("Password").setValue(updatedPassword);
         reference.child("Website Info").child(updatedName).child("URL").setValue(updatedUrl);
