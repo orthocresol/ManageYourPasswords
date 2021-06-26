@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +37,7 @@ public class ViewActivity extends AppCompatActivity {
     String passwordFromDb;
     String urlFromDb;
     String userOrEmail;
+    AlertDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,15 +121,30 @@ public class ViewActivity extends AppCompatActivity {
 
     public void onDeleteItem(View view) {
 
-        String webSiteName = getIntentString();
-        String currentEmail = VaultActivity.getTrackingEmail();
+        dialog = new AlertDialog.Builder(ViewActivity.this)
+                .setMessage("Do you really want to delete this item?")
+                .setPositiveButton("Yes", null)
+                .setNegativeButton("Cancel", null)
+                .show();
+        Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String webSiteName = getIntentString();
+                String currentEmail = VaultActivity.getTrackingEmail();
 
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
-        reference.child("Website Info").child(webSiteName).setValue(null);
-        reference.child("Website Names").child(webSiteName).setValue(null);
-        reference.child("Website URL").child(webSiteName).setValue(null);
-        finish();
+                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
+                reference.child("Website Info").child(webSiteName).setValue(null);
+                reference.child("Website Names").child(webSiteName).setValue(null);
+                reference.child("Website URL").child(webSiteName).setValue(null);
+                finish();
+                Toast.makeText(ViewActivity.this, "deleted successfully", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
     }
 
     private void showInfo() {
