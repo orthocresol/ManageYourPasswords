@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class AddItemActivity extends AppCompatActivity {
@@ -36,20 +40,36 @@ public class AddItemActivity extends AppCompatActivity {
     public void onSave(View view) {
 
         bindStrings();
+
         if(verified(textWebName,textUserEmail, textPassword, textUrl)) {
             String findingEmail = VaultActivity.getTrackingEmail();
 
             FirebaseDatabase db = FirebaseDatabase.getInstance();
             DatabaseReference reference = db.getReference().child("Users").child(findingEmail).child("Websites");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.child("Website Info").hasChild(textWebName)) {
+                        Toast.makeText(AddItemActivity.this, "Item Already Exits", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        reference.child("Website Names").child(textWebName).setValue(textWebName);
+                        reference.child("Website URL").child(textWebName).setValue(textUrl);
 
-            reference.child("Website Names").child(textWebName).setValue(textWebName);
-            reference.child("Website URL").child(textWebName).setValue(textUrl);
-            reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
-            reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);
-            reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
-            reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
+                        reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
+                        reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);
+                        reference.child("Website Info").child(textWebName).child("Password").setValue(textPassword);
+                        reference.child("Website Info").child(textWebName).child("URL").setValue(textUrl);
 
-            finish();
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(AddItemActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
