@@ -52,7 +52,7 @@ public class SingleLoginActivity extends AppCompatActivity {
         String text = "Not a user yet? Register here now!";
         SpannableString ss = new SpannableString(text);
         ForegroundColorSpan fcs = new ForegroundColorSpan(Color.YELLOW);
-        ss.setSpan(fcs,26,29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(fcs,15,33, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         btn_register.setText(ss);
 
         clickListeners();
