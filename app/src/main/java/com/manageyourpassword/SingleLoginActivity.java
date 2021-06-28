@@ -4,7 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +48,13 @@ public class SingleLoginActivity extends AppCompatActivity {
         setTitle("Sign In");
 
         initVariable();
+
+        String text = "Not a user yet? Register here now!";
+        SpannableString ss = new SpannableString(text);
+        ForegroundColorSpan fcs = new ForegroundColorSpan(Color.YELLOW);
+        ss.setSpan(fcs,26,29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        btn_register.setText(ss);
+
         clickListeners();
         disappearVariables();
         if(!autoLoginForSqlite()){
@@ -129,6 +141,8 @@ public class SingleLoginActivity extends AppCompatActivity {
         });
 
         btn_register.setOnClickListener(v -> {
+            btn_register.setTextColor(Color.parseColor("#ffffff"));
+            btn_register.setPaintFlags(btn_register.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             startActivity(new Intent(SingleLoginActivity.this, RegisterActivity.class));
             finish();
         });
