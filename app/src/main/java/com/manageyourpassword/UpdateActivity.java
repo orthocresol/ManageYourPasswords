@@ -6,10 +6,14 @@ import android.widget.EditText;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class UpdateActivity extends AppCompatActivity {
 
@@ -51,17 +55,31 @@ public class UpdateActivity extends AppCompatActivity {
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child("Website Info").hasChild(updatedName)) {
+                    Toast.makeText(UpdateActivity.this, "Changed Item already Exits", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    reference.child("Website Names").child(prevName).setValue(null);
+                    reference.child("Website URL").child(prevName).setValue(null);
+                    reference.child("Website Names").child(updatedName).setValue(updatedName);
+                    reference.child("Website URL").child(updatedName).setValue(updatedUrl);
 
-        reference.child("Website Names").child(prevName).setValue(null);
-        reference.child("Website URL").child(prevName).setValue(null);
-        reference.child("Website Names").child(updatedName).setValue(updatedName);
-        reference.child("Website URL").child(updatedName).setValue(updatedUrl);
+                    reference.child("Website Info").child(prevName).setValue(null);
+                    reference.child("Website Info").child(updatedName).child("Name").setValue(updatedName);
+                    reference.child("Website Info").child(updatedName).child("Password").setValue(updatedPassword);
+                    reference.child("Website Info").child(updatedName).child("URL").setValue(updatedUrl);
+                    reference.child("Website Info").child(updatedName).child("Username Or Email").setValue(updatedUserEmail);
+                }
+            }
 
-        reference.child("Website Info").child(prevName).setValue(null);
-        reference.child("Website Info").child(updatedName).child("Name").setValue(updatedName);
-        reference.child("Website Info").child(updatedName).child("Password").setValue(updatedPassword);
-        reference.child("Website Info").child(updatedName).child("URL").setValue(updatedUrl);
-        reference.child("Website Info").child(updatedName).child("Username Or Email").setValue(updatedUserEmail);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UpdateActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Toast.makeText(UpdateActivity.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
     }
