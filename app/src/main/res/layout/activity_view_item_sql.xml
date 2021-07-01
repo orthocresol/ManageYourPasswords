@@ -46,7 +46,7 @@
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/audiowide"
             android:padding="10dp"
             android:shadowColor="#E41A07"

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,8 +40,10 @@ public class SingleLoginActivity extends AppCompatActivity {
     EditText et_email;
     TextInputEditText et_password;
     String email, password;
+    ImageView img_login;
     ProgressBar progressBar;
     SessionManagerSQL sessionManagerSQL;
+    Animation top_animation;
 
 
     @Override
@@ -47,8 +52,11 @@ public class SingleLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_login);
         setTitle("Sign In");
 
+        top_animation = AnimationUtils.loadAnimation(SingleLoginActivity.this ,R.anim.top_animation);
+
         initVariable();
 
+        img_login.setAnimation(top_animation);
         String text = "Not a user yet? Register here now!";
         SpannableString ss = new SpannableString(text);
         ForegroundColorSpan fcs = new ForegroundColorSpan(Color.YELLOW);
@@ -63,10 +71,10 @@ public class SingleLoginActivity extends AppCompatActivity {
     }
 
     private void disappearVariables() {
-        TextView tv = findViewById(R.id.log_tv1);
+//        TextView tv = findViewById(R.id.log_tv1);
+//        tv.setVisibility(View.INVISIBLE);
 
-        tv.setVisibility(View.INVISIBLE);
-
+        img_login.setVisibility(View.INVISIBLE);
         btn_register.setVisibility(View.INVISIBLE);
         btn_login.setVisibility(View.INVISIBLE);
         et_email.setVisibility(View.INVISIBLE);
@@ -108,10 +116,10 @@ public class SingleLoginActivity extends AppCompatActivity {
         }
     }
     private void reappearVariables(){
-        TextView tv = findViewById(R.id.log_tv1);
+//        TextView tv = findViewById(R.id.log_tv1);
+//        tv.setVisibility(View.VISIBLE);
 
-        tv.setVisibility(View.VISIBLE);
-
+        img_login.setVisibility(View.VISIBLE);
         btn_register.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.VISIBLE);
         et_email.setVisibility(View.VISIBLE);
@@ -217,6 +225,7 @@ public class SingleLoginActivity extends AppCompatActivity {
         et_email = findViewById(R.id.log_email);
         et_password = findViewById(R.id.log_password);
         progressBar = findViewById(R.id.log_progressbar);
+        img_login = findViewById(R.id.log_in_icon);
 
         progressBar.setVisibility(View.INVISIBLE);
         sessionManagerSQL = new SessionManagerSQL(getApplicationContext());

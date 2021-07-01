@@ -9,19 +9,13 @@
     android:layout_height="match_parent"
     tools:context=".SingleLoginActivity">
 
-    <TextView
-        android:id="@+id/log_tv1"
+    <ImageView
+        android:id="@+id/log_in_icon"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:text="Log in"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:transitionName="main_logo_image"
+        android:src="@drawable/icons8_login_64"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -29,7 +23,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="50dp">
         <EditText
             android:layout_width="match_parent"
             android:drawableStart="@drawable/icon_person"
