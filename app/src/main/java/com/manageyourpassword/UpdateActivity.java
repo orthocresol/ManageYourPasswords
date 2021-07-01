@@ -58,7 +58,7 @@ public class UpdateActivity extends AppCompatActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("Website Info").hasChild(updatedName)) {
+                if(!prevName.equals(updatedName) && snapshot.child("Website Info").hasChild(updatedName)) {
                     Toast.makeText(UpdateActivity.this, "Changed Item already Exits", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -72,6 +72,8 @@ public class UpdateActivity extends AppCompatActivity {
                     reference.child("Website Info").child(updatedName).child("Password").setValue(updatedPassword);
                     reference.child("Website Info").child(updatedName).child("URL").setValue(updatedUrl);
                     reference.child("Website Info").child(updatedName).child("Username Or Email").setValue(updatedUserEmail);
+
+                    Toast.makeText(UpdateActivity.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -81,7 +83,6 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(UpdateActivity.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
     }
 
     private void showPrevInfo() {
