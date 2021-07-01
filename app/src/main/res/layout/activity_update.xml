@@ -41,11 +41,11 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true"
         android:focusable="true"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="10dp">
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="NAME"
             android:id="@+id/newName"
             android:background="#E681C1"
@@ -63,7 +63,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:id="@+id/newUserEmail"
             android:hint="USERNAME"
             android:background="#E681C1"
@@ -84,7 +84,7 @@
         <EditText
             android:layout_width="match_parent"
             android:id="@+id/newPassword"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="PASSWORD"
             android:background="#E681C1"
             android:ems="10"
@@ -101,7 +101,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="URL"
             android:background="#E681C1"
             android:id="@+id/newUrl"
@@ -114,7 +114,7 @@
         android:id="@+id/update"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:text="SAVE"
