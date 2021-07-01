@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
+        android:id="@+id/log_email_lay"
         android:focusableInTouchMode="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp">
@@ -38,6 +39,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/log_password_lay"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_gravity="center_horizontal"

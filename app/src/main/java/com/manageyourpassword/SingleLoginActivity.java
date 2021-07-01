@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,8 +38,12 @@ import com.google.firebase.database.ValueEventListener;
 public class SingleLoginActivity extends AppCompatActivity {
     Button btn_login;
     MaterialTextView btn_register;
+
+    TextInputLayout lay_email, lay_password;
+
     EditText et_email;
-    TextInputEditText et_password;
+    EditText et_password;
+
     String email, password;
     ImageView img_login;
     ProgressBar progressBar;
@@ -56,7 +61,7 @@ public class SingleLoginActivity extends AppCompatActivity {
 
         initVariable();
 
-        img_login.setAnimation(top_animation);
+
         String text = "Not a user yet? Register here now!";
         SpannableString ss = new SpannableString(text);
         ForegroundColorSpan fcs = new ForegroundColorSpan(Color.YELLOW);
@@ -68,6 +73,7 @@ public class SingleLoginActivity extends AppCompatActivity {
         if(!autoLoginForSqlite()){
             autoLoginForFirebase();
         }
+
     }
 
     private void disappearVariables() {
@@ -80,6 +86,9 @@ public class SingleLoginActivity extends AppCompatActivity {
         et_email.setVisibility(View.INVISIBLE);
         et_password.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
+        lay_email.setVisibility(View.INVISIBLE);
+        lay_password.setVisibility(View.INVISIBLE);
+
     }
 
     private void autoLoginForFirebase() {
@@ -118,13 +127,18 @@ public class SingleLoginActivity extends AppCompatActivity {
     private void reappearVariables(){
 //        TextView tv = findViewById(R.id.log_tv1);
 //        tv.setVisibility(View.VISIBLE);
-
+        img_login.setAnimation(top_animation);
         img_login.setVisibility(View.VISIBLE);
         btn_register.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.VISIBLE);
         et_email.setVisibility(View.VISIBLE);
         et_password.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
+        lay_email.setVisibility(View.VISIBLE);
+        lay_password.setVisibility(View.VISIBLE);
+
+
+
 
     }
     private boolean checkUserState() {
@@ -226,6 +240,8 @@ public class SingleLoginActivity extends AppCompatActivity {
         et_password = findViewById(R.id.log_password);
         progressBar = findViewById(R.id.log_progressbar);
         img_login = findViewById(R.id.log_in_icon);
+        lay_email = findViewById(R.id.log_email_lay);
+        lay_password = findViewById(R.id.log_password_lay);
 
         progressBar.setVisibility(View.INVISIBLE);
         sessionManagerSQL = new SessionManagerSQL(getApplicationContext());

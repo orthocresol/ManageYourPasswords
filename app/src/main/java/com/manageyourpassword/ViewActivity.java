@@ -158,6 +158,7 @@ public class ViewActivity extends AppCompatActivity {
                 finish();
                 Toast.makeText(ViewActivity.this, "deleted successfully", Toast.LENGTH_SHORT).show();
                 finish();
+                dialog.dismiss();
             }
         });
 
