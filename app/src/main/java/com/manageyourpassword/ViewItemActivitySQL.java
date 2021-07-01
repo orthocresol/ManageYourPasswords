@@ -67,10 +67,10 @@ public class ViewItemActivitySQL extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
         password = getIntent().getStringExtra("password");
         url = getIntent().getStringExtra("url");
-        tv_name.setText(name);
-        tv_username.setText(username);
-        tv_password.setText(password);
-        tv_url.setText(url);
+        tv_name.setText("Name: " + name);
+        tv_username.setText("Username: " + username);
+        tv_password.setText("Password: " + password);
+        tv_url.setText("Url: " + url);
 
         String dest = "https://logo.clearbit.com/" + url;
         Picasso.get()
