@@ -154,7 +154,7 @@ public class ViewActivity extends AppCompatActivity {
                 DatabaseReference reference = db.getReference().child("Users").child(currentEmail).child("Websites");
                 reference.child("Website Info").child(webSiteName).setValue(null);
                 reference.child("Website Names").child(webSiteName).setValue(null);
-                reference.child("Website URL").child(webSiteName).setValue(null);
+                reference.child("Website Names").child(webSiteName + "URL").setValue(null);
                 finish();
                 Toast.makeText(ViewActivity.this, "deleted successfully", Toast.LENGTH_SHORT).show();
                 finish();
