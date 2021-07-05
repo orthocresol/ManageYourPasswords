@@ -54,7 +54,7 @@ public class AddItemActivity extends AppCompatActivity {
                     }
                     else {
                         reference.child("Website Names").child(textWebName).setValue(textWebName);
-                        reference.child("Website URL").child(textWebName).setValue(textUrl);
+                        reference.child("Website Names").child(textWebName + "URL").setValue(textUrl);
 
                         reference.child("Website Info").child(textWebName).child("Name").setValue(textWebName);
                         reference.child("Website Info").child(textWebName).child("Username Or Email").setValue(textUserEmail);

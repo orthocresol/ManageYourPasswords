@@ -63,9 +63,9 @@ public class UpdateActivity extends AppCompatActivity {
                 }
                 else {
                     reference.child("Website Names").child(prevName).setValue(null);
-                    reference.child("Website URL").child(prevName).setValue(null);
+                    reference.child("Website Names").child(prevName + "URL").setValue(null);
                     reference.child("Website Names").child(updatedName).setValue(updatedName);
-                    reference.child("Website URL").child(updatedName).setValue(updatedUrl);
+                    reference.child("Website Names").child(updatedName + "URL").setValue(updatedUrl);
 
                     reference.child("Website Info").child(prevName).setValue(null);
                     reference.child("Website Info").child(updatedName).child("Name").setValue(updatedName);

@@ -100,30 +100,20 @@ public class VaultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int count = 0;
+                boolean evenFlag = true;
                 for(DataSnapshot snapshot1: snapshot.getChildren()) {
                     String temp = snapshot1.getValue().toString();
-                    itemList.add(new VaultItem());
-                    itemList.get(count).setWebName(temp);
-                    count++;
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(VaultActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        DatabaseReference reference1 = db.getReference().child("Users").child(currentEmail).child("Websites").child("Website URL");
-        reference1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int count = 0;
-                for(DataSnapshot snapshot1: snapshot.getChildren()) {
-                    String url = snapshot1.getValue().toString();
-                    itemList.get(count).setUrls(url);
-                    count++;
+                    if(evenFlag) {
+                        itemList.add(new VaultItem());
+                        itemList.get(count).setWebName(temp);
+                        Log.i("NameLog", "Entered Name");
+                    }
+                    if(!evenFlag) {
+                        itemList.get(count).setUrls(temp);
+                        count++;
+                        Log.i("UrlLog", "Entered url");
+                    }
+                    evenFlag = !evenFlag;
                 }
                 adapter.notifyDataSetChanged();
             }
