@@ -169,7 +169,7 @@ public class ViewItemActivitySQL extends AppCompatActivity {
         btn_launch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToUrl(tv_url.getText().toString().trim());
+                goToUrl(url);
             }
         });
     }
